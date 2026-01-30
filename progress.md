@@ -32,7 +32,15 @@
 - Added "Total Daily Profit ($)" metric card to show absolute dollar profit (responds to volume changes).
 - Added "Daily Revenue ($)" and "Daily COGS ($)" metrics for complete profitability breakdown.
 - Organized metrics into 4-column layout for better visibility.
+- Created `src/scraper/record_margin.py` to automatically record historical margin data.
+- Created `src/scraper/run_monthly_complete.py` for one-command monthly workflow.
+- Updated dashboard to show today's date instead of "No data" when trend chart is empty.
+- Created `USAGE.md` with complete instructions for running scripts.
+
+## How to Use (Monthly Workflow)
+1. Run complete workflow: `python -m src.scraper.run_monthly_complete --url "..." --quantity-count 100`
+2. View dashboard: `python -m streamlit run src/dashboard/app.py`
 
 ## Next Task
-- Add Login and Register buttons to the dashboard header.
-- Reference: @prd.md (update requirements to include auth UI), then implement in `src/dashboard/app.py` using `st.columns` + `st.button` for alignment.
+- Test the complete monthly workflow end-to-end.
+- Verify trend chart shows multiple data points after running margin recorder multiple times.

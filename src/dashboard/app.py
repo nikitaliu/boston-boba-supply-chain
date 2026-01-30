@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import sys
+from datetime import date
 from pathlib import Path
 
 ROOT_DIR = Path(__file__).resolve().parents[2]
@@ -91,7 +92,7 @@ def main() -> None:
     if history.empty:
         history = pd.DataFrame(
             {
-                "date": ["No data"],
+                "date": [date.today().strftime("%Y-%m-%d")],
                 "size_ml": [size_ml],
                 "daily_volume": [daily_volume],
                 "gross_margin": [gross_margin],
