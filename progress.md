@@ -26,7 +26,13 @@
 ## Structure Notes
 - Dashboard supports size toggle, volume slider, and price sensitivity.
 - Streamlit server runs at `http://localhost:8501` when launched.
- 
+- Dashboard now displays 4 profitability metrics in columns: Gross Profit Margin (%), Total Daily Profit ($), Daily Revenue ($), and Daily COGS ($).
+
+## Latest Changes
+- Added "Total Daily Profit ($)" metric card to show absolute dollar profit (responds to volume changes).
+- Added "Daily Revenue ($)" and "Daily COGS ($)" metrics for complete profitability breakdown.
+- Organized metrics into 4-column layout for better visibility.
+
 ## Next Task
 - Add Login and Register buttons to the dashboard header.
 - Reference: @prd.md (update requirements to include auth UI), then implement in `src/dashboard/app.py` using `st.columns` + `st.button` for alignment.

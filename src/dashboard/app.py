@@ -68,9 +68,18 @@ def main() -> None:
     revenue = compute_revenue(price_per_cup, daily_volume)
     cogs = compute_cogs(effective_price_per_gram, size_ml, daily_volume)
     gross_margin = compute_gross_margin(revenue, cogs)
+    total_profit = revenue - cogs
 
-    st.subheader("Current Gross Profit Margin")
-    st.metric("Gross Profit Margin (%)", f"{gross_margin:.2f}%")
+    st.subheader("Current Profitability Metrics")
+    col1, col2, col3, col4 = st.columns(4)
+    with col1:
+        st.metric("Gross Profit Margin (%)", f"{gross_margin:.2f}%")
+    with col2:
+        st.metric("Total Daily Profit ($)", f"${total_profit:.2f}")
+    with col3:
+        st.metric("Daily Revenue ($)", f"${revenue:.2f}")
+    with col4:
+        st.metric("Daily COGS ($)", f"${cogs:.2f}")
 
     st.write(
         f"Latest supplier item: {item_name} | "
