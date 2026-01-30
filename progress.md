@@ -40,6 +40,13 @@
   - 🔴 Red marker showing real scraped price from web scraping
   - Dynamic status indicators (green/yellow/blue) showing deviation from real price
   - Percentage and dollar difference display when adjusting price
+- **NEW: Tea by the Sea Brand UI Theme**:
+  - Created `.streamlit/config.toml` with brand blue color scheme (#0047AB)
+  - Added custom CSS with circular logo design and ocean gradients
+  - Redesigned header with Tea by the Sea branding
+  - Updated all labels with emoji and simplified language
+  - Applied blue gradient theme to sidebar
+  - Added wave dividers for visual separation
 
 ## How to Use (Monthly Workflow)
 1. Run complete workflow: `python -m src.scraper.run_monthly_complete --url "..." --quantity-count 100`
