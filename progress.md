@@ -36,6 +36,10 @@
 - Created `src/scraper/run_monthly_complete.py` for one-command monthly workflow.
 - Updated dashboard to show today's date instead of "No data" when trend chart is empty.
 - Created `USAGE.md` with complete instructions for running scripts.
+- Enhanced Price Sensitivity slider with:
+  - 🔴 Red marker showing real scraped price from web scraping
+  - Dynamic status indicators (green/yellow/blue) showing deviation from real price
+  - Percentage and dollar difference display when adjusting price
 
 ## How to Use (Monthly Workflow)
 1. Run complete workflow: `python -m src.scraper.run_monthly_complete --url "..." --quantity-count 100`

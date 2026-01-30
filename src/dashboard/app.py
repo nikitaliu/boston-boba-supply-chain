@@ -54,13 +54,33 @@ def main() -> None:
         grams_total = DEFAULT_GRAMS_TOTAL
         price_per_gram = DEFAULT_PRICE_PER_GRAM
 
+    st.sidebar.markdown("---")
+    st.sidebar.markdown("### 💰 Price Sensitivity")
+    st.sidebar.markdown(
+        f"🔴 **Real Scraped Price**: ${total_price:.2f}  \n"
+        f"*(Last updated: {date.today().strftime('%Y-%m-%d')})*"
+    )
+    
     price_override = st.sidebar.slider(
-        "Price Sensitivity (pack price, USD)",
+        "Adjust Pack Price (USD)",
         min_value=0.0,
         max_value=max(50.0, total_price * 2),
         value=float(total_price),
         step=0.1,
+        help=f"🔴 Real price: ${total_price:.2f} | Drag to simulate different scenarios"
     )
+    
+    # Show if user is at real price or simulating
+    if abs(price_override - total_price) < 0.01:
+        st.sidebar.success("✓ Currently at real scraped price")
+    else:
+        diff = price_override - total_price
+        diff_pct = (diff / total_price) * 100
+        if diff > 0:
+            st.sidebar.warning(f"⚠️ +${diff:.2f} (+{diff_pct:.1f}%) above real price")
+        else:
+            st.sidebar.info(f"💡 ${abs(diff):.2f} ({abs(diff_pct):.1f}%) below real price")
+    
     effective_price_per_gram = resolve_price_per_gram(price_override, grams_total)
 
     size_ml = SIZE_MEDIUM if size_label.startswith("Medium") else SIZE_LARGE
